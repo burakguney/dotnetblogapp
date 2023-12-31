@@ -27,5 +27,20 @@ namespace BlogApp.Controllers
         {
             return View(await _postRepository.Posts.FirstOrDefaultAsync(p => p.Url == url));
         }
+
+        [HttpGet("posts/tag/{url}")]
+        public async Task<IActionResult> ListByTags(string? url)
+        {
+            var posts = _postRepository.Posts;
+
+            posts = posts.Where(x => x.Tags.Any(t => t.Url == url));
+
+            PostsViewModel model = new()
+            {
+                Posts = await posts.ToListAsync()
+            };
+
+            return View("Index", model);
+        }
     }
 }
