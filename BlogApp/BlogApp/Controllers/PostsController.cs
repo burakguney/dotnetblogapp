@@ -15,16 +15,17 @@ namespace BlogApp.Controllers
         public IActionResult Index()
         {
             return View(
-                new PostsViewModel 
+                new PostsViewModel
                 {
                     Posts = _postRepository.Posts.ToList()
                 }
             );
         }
 
-        public async Task<IActionResult> Details(int? id)
+        [HttpGet("posts/{url}")]
+        public async Task<IActionResult> Details(string? url)
         {
-            return View(await _postRepository.Posts.FirstOrDefaultAsync(p => p.PostId == id));
+            return View(await _postRepository.Posts.FirstOrDefaultAsync(p => p.Url == url));
         }
     }
 }

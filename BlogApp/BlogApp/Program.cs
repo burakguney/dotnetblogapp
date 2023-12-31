@@ -8,8 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<BlogContext>(options => {
-    options.UseSqlite(builder.Configuration["ConnectionStrings:Sql_connection"]);
+builder.Services.AddDbContext<BlogContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:SQLite"]);
 });
 
 builder.Services.AddScoped<IPostRepository, EfPostRepository>();
