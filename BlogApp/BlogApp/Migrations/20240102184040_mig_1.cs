@@ -18,7 +18,8 @@ namespace BlogApp.Migrations
                     TagId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Text = table.Column<string>(type: "TEXT", nullable: true),
-                    Url = table.Column<string>(type: "TEXT", nullable: true)
+                    Url = table.Column<string>(type: "TEXT", nullable: true),
+                    Color = table.Column<int>(type: "INTEGER", nullable: true)
                 },
                 constraints: table =>
                 {

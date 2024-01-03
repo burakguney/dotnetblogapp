@@ -84,6 +84,9 @@ namespace BlogApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int?>("Color")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Text")
                         .HasColumnType("TEXT");
 

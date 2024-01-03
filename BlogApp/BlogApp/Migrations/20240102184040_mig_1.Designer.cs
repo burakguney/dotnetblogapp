@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BlogApp.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    [Migration("20231231140009_mig_1")]
+    [Migration("20240102184040_mig_1")]
     partial class mig_1
     {
         /// <inheritdoc />
@@ -85,6 +85,9 @@ namespace BlogApp.Migrations
                 {
                     b.Property<int>("TagId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("Color")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Text")
