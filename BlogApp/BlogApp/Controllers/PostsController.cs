@@ -26,7 +26,7 @@ namespace BlogApp.Controllers
         public async Task<IActionResult> Details(string? url)
         {
             return View(await _postRepository
-            .Posts.Include(x => x.Tags).FirstOrDefaultAsync(p => p.Url == url));
+            .Posts.Include(x => x.Tags).Include(x => x.Comments).ThenInclude(x => x.User).FirstOrDefaultAsync(p => p.Url == url));
         }
 
         [HttpGet("posts/tag/{url}")]
