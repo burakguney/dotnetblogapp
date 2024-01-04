@@ -43,5 +43,11 @@ namespace BlogApp.Controllers
 
             return View("Index", model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddComment(int PostId, string UserName, string Text)
+        {
+            return View();
+        }
     }
 }
